@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "values": [
+      {"a": "Liverpool", "b": 31},
+      {"a": "Manchester City", "b": 22},
+      {"a": "Manchester United", "b": 19},
+      {"a": "Chelsea", "b": 27},
+      {"a": "Tottenham", "b": 9},
+      {"a": "Arsenal", "b": 13}
+    ]
+  },
+  "width": 500,
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "a",
+      "type": "nominal",
+      "axis": {"labelAngle": 0},
+      "title": "Team"
+    },
+    "y": {
+      "field": "b", 
+      "type": "quantitative", 
+      "title": "Goals scored"
+    }
+  },
+  "config": {}
+}
