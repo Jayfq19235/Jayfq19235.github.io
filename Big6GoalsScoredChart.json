@@ -23,7 +23,7 @@
     "y": {
       "field": "b", 
       "type": "quantitative", 
-      "title": "Goals scored"
+      "title": "Goals scored (as of 15/11/2021)"
     }
   },
   "config": {}
