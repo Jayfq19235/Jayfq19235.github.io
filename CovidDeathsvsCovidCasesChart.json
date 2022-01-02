@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Cumulative COVID deaths vs cases in the UK",
+  "layer": [
+    {
+      "data": {
+        "url": "https://api.coronavirus.data.gov.uk/v2/data?areaType=overview&metric=cumCasesByPublishDate&format=csv",
+        "format": {"type": "csv"}
+      },
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "date", "type": "temporal"},
+        "y": {
+          "field": "cumCasesByPublishDate",
+          "type": "quantitative",
+          "title": "Cases"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "https://api.coronavirus.data.gov.uk/v2/data?areaType=overview&metric=cumDeaths28DaysByPublishDate&format=csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {"calculate": "86*datum.cumDeaths28DaysByPublishDate", "as": "2cd"}
+      ],
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "date", "type": "temporal"},
+        "y": {"field": "2cd", "type": "quantitative", "title": "Deaths"}
+      }
+    }
+  ],
+  "config": {}
+}
