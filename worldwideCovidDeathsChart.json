@@ -1,0 +1,52 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/Jayfq19235/Jayfq19235.github.io/main/WorldCovidData.csv",
+    "format": {"type": "csv"}
+  },
+  "title": {
+    "text": "Worldwide COVID Deaths: Beginning of April 2020 ",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "black",
+    "subtitle": "Source:European Centre for Disease Prevention and Control"
+  },
+  "height": 300,
+  "width": 300,
+  "mark": {"type": "bar", "width": 20},
+  "selection": {
+    "Region": {
+      "type": "single",
+      "fields": ["continentExp"],
+      "bind": {
+        "input": "select",
+        "options": ["null", "Asia", "Africa", "America", "Europe", "Oceania"],
+        "name": "Continent"
+      }
+    }
+  },
+  "transform": [
+    {"filter": {"selection": "Region"}},
+    {"filter": "datum.deaths>0"},
+    {
+      "filter": {
+        "field": "dateRep",
+        "range": [
+          {"year": 2020, "month": "apr", "date": 1},
+          {"year": 2020, "month": "apr", "date": 12}
+        ]
+      }
+    }
+  ],
+  "encoding": {
+    "x": {"field": "dateRep", "type": "temporal", "title": null},
+    "y": {"field": "deaths", "type": "quantitative", "title": null},
+    "color": {
+      "field": "continentExp",
+      "type": "nominal",
+      "legend": null,
+      "scale": {"scheme": "reds"}
+    }
+  }
+}

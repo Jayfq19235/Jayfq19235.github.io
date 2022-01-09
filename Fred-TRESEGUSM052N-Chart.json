@@ -1,0 +1,25 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+  "height":300,
+  "width":300,
+  
+  
+  "title": {
+    "subtitle": "Source:FRED",
+    "text": "USA Reserves over time (excluding Gold)"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Jayfq19235/Jayfq19235.github.io/main/Fred-TRESEGUSM052N.json",
+    "format": {"property": "observations"}
+  },
+  
+  "transform": [
+    {"calculate": "datum.value/1000000000", "as": "b"}
+  ],
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "date", "type": "temporal", "title": null},
+    "y": {"field": "b", "type": "quantitative", "title": "Reserves($bn)"}
+  }
+}

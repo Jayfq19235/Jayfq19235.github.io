@@ -1,0 +1,25 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+  "height":300,
+  "width":300,
+  
+  
+  "title": {
+    "subtitle": "Source:FRED",
+    "text": "USA Unemployment Rate over time"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Jayfq19235/Jayfq19235.github.io/main/Fred-UNRATE.json",
+    "format": {"property": "observations"}
+  },
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "date", "type": "temporal", "title": null},
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Unemployment Rate (%)"
+    }
+  }
+}

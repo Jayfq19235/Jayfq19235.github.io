@@ -1,0 +1,21 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "GDP per Capita vs Happiness",
+    "subtitle": "Sources:World Happiness Database API, Worldbank API"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Jayfq19235/Jayfq19235.github.io/main/GDPvsHappiness.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": "point",
+  "encoding": {
+    "x": {
+      "field": "GDP",
+      "type": "quantitative",
+      "title": "GDP Per Capita (Current USD)"
+    },
+    "y": {"field": "Happiness", "type": "quantitative"},
+    "tooltip": [{"field": "GDP"}, {"field": "Happiness"}, {"field": "Country"}]
+  }
+}

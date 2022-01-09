@@ -1,0 +1,18 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://world-happiness-database.herokuapp.com/api/happiness"
+  },
+  "title": {
+    "text": "Happiness by Country",
+    "subtitle": "Data source:World Happiness Database API (Most recent values)"
+  },
+  "transform": [{"filter":"datum.happiness>7"}],
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "country", "type": "nominal", "sort": "-y"},
+    "y": {"field": "happiness", "type": "quantitative", "title": "Happiness(scale 1-10"},
+    "color": {"value": "#20D337"},
+    "tooltip": {"field": "happiness", "type": "quantitative"}
+  }
+}

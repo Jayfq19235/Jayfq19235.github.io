@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 
-<!-- Richard Davies, Data Science 2021 -->
-
-
 <!-- ///////////////////  HEAD //////////////////////////////////// -->
 
 <head>
 
 <!--The next three lines allow the Vega embed-->
-<script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
+
+<link rel="stylesheet" href="index.css">
+
+<title>Data Science Portfolio - Jay Dhiru</title>
+
+<h1>Data Science Portfolio - Jay Dhiru  </h1>
+<p><a href="project.html">Click here for my Data Science Project</a></p>
 </head>
+
 
 <!-- ///////////////////  HEAD //////////////////////////////////// -->
 
@@ -22,7 +28,10 @@
 
 <body>
 
-<!--Chart 1 -->
+<div class="grid_items">
+
+  <!--Chart 1 -->
+  <label for="chart1">This COVID cases chart is the first of 2 charts from RapidCharts that I initally embedded onto this site.</label>
   <div class="chart" id="chart1">
       <script>
         var myChart1 = "chart1_covidUKRegions.json";
@@ -31,6 +40,7 @@
   </div>
 
 <!--Chart 2 -->
+<label for="chart2">This UK Productivity Chart is the second of 2 charts from RapidCharts.io that I initally embedded onto this site.</label>
 <div class="chart" id="chart2">
     <script>
       var myChart2 = "chart2_ukProductivity.json";
@@ -39,6 +49,7 @@
 </div>
 
 <!--Chart 3 -->
+<label for="chart3">This football chart was also taken from RapidCharts.io as part of a task to embed any chart of my choosing and become familiar with embedding charts.</label>
 <div class="chart" id="chart3">
     <script>
       var myChart3 = "chartFootball1.json";
@@ -47,6 +58,8 @@
 </div>
 
 <!--Chart 4 -->
+
+<label for="chart4">This COVID vaccine chart was part of a task to create a chart which runs using data directly from an API. As such it will automatically update as new data is added to the API.</label>
 <div class="chart" id="chart4">
     <script>
       var myChart4 = "VaccineDataRegionalChart.json";
@@ -55,6 +68,7 @@
 </div>
 
 <!--Chart 5 -->
+<label for="chart5">This COVID cases chart runs from a csv file hosted on my Github repository and does not automatically update, but the data is from the same government API as the chart just before.</label>
 <div class="chart" id="chart5">
     <script>
       var myChart5 = "newCasesChart.json";
@@ -63,12 +77,136 @@
 </div>
 
 <!--Chart 6 -->
+<label for="chart6">This is a simple bar graph of the goals scored by the "Big 6" Premier League teams. The task was to create a graph using inline JSON data that I've written myself.</label>
 <div class="chart" id="chart6">
     <script>
       var myChart6 = "Big6GoalsScoredChart.json";
       vegaEmbed('#chart6', myChart6);
     </script>
 </div>
+
+<!--Chart 7 -->
+<label for="chart7">This is a chart where I edited data by adding another series to a dataset and graphing them together. 
+  Deaths are not accurate, rather scaled up by ~90x to better visualise trends between cases and deaths.</label>
+<div class="chart" id="chart7">
+  <script>
+    var myChart7 = "CovidDeathsvsCovidCasesChart.json";
+    vegaEmbed('#chart7', myChart7);
+  </script>
+</div>
+
+
+<!--Chart 8 -->
+<label for="chart8">This is a chart showing USA CPI over time, as part of a task to use APIs of my own choosing that I sign up for.</label>
+<div class="chart" id="chart8">
+  <script>
+    var myChart8 = "USACPIChart.json";
+    vegaEmbed('#chart8', myChart8);
+  </script>
+</div>
+
+<!--Chart 9 -->
+<label for="chart9">This chart uses data from another API I signed up for as part of the aforementioned task</label>
+<div class="chart" id="chart9">
+  <script>
+    var myChart9 = "MetalPricesChart.json";
+    vegaEmbed('#chart9', myChart9);
+  </script>
+</div>
+
+<!--Chart 10 -->
+<label for="chart10">The following 4 charts were created using data from the FRED API. 
+  I used a Python script in Google Colab to loop over 4 variables and batch download data 
+  in an automated process. The relevant python file is FREDLooping.ipynb which can be found in my Github repository or below</label>
+<label for="chart10"><a href="FREDLooping.ipynb">Click here for the relevant Python file</a></label>
+  <div class="chart" id="chart10">
+  <script>
+    var myChart10 = "Fred-GDP-Chart.json";
+    vegaEmbed('#chart10', myChart10);
+  </script>
+</div>
+
+<!--Chart 11 -->
+
+<div class="chart" id="chart11">
+  <script>
+    var myChart11 = "Fred-UNRATE-Chart.json";
+    vegaEmbed('#chart11', myChart11);
+  </script>
+</div>
+
+<!--Chart 12 -->
+<div class="chart" id="chart12">
+  <script>
+    var myChart12 = "Fred-TRESEGUSM052N-Chart.json";
+    vegaEmbed('#chart12', myChart12);
+  </script>
+</div>
+
+<!--Chart 13 -->
+<div class="chart" id="chart13">
+  <script>
+    var myChart13 = "Fred-FPCPITOTLZGUSA-Chart.json";
+    vegaEmbed('#chart13', myChart13);
+  </script>
+</div>
+
+<!--Chart 14 -->
+<label for="chart14">For this chart I used Python within Colab and Pandas to 
+  scrape a Wikipedia website and return a useable dataset of sales for some popular 
+  manga.The relevant python file is MangaScraper.ipynb which can be found in my Github repository or below</label>
+  <label for="chart10"><a href="MangaScraper.ipynb">Click here for the relevant Python file</a></label>
+
+<div class="chart" id="chart14">
+  <script>
+    var myChart14 = "mangaSalesChart.json";
+    vegaEmbed('#chart14', myChart14);
+  </script>
+</div>
+
+<!--Chart 15 -->
+<label for="chart15">This GDP chart was made to fact-check a statement made by Dimitri Zenghelis at the Talking Economics event. He mentioned that the 90s and early 2000s were a period of high economic confidence and strong growth. As the graph shows, this is entirely correct as growth never dipped below 2% in this period.</label>
+<div class="chart" id="chart15">
+  <script>
+    var myChart15 = "worldGDPchart.json";
+    vegaEmbed('#chart15', myChart15);
+  </script>
+</div>
+
+<!--Chart 16-->
+<label for="chart16">This graph was made as part of a task to do some higher level analysis. 
+  As such I regressed GDP growth for the USA and the UK against each other. This regression returned
+  an equation of y =  0.53x +  0.94 and an R^2 value of 0.43, which indicates a moderate level of correlation between
+  the two variables.
+</label>
+<img src="UKvsUSRegressionChart.png">
+
+<!--Chart 17 -->
+<label for="chart17">This is the first interactive chart as part of a task to create 2. 
+  For this chart, there is a dropdown menu to select which continent you would like data for.</label>
+<div class="chart" id="chart17">
+  <script>
+    var myChart17 = "worldwideCovidDeathsChart.json";
+    vegaEmbed('#chart17', myChart17);
+  </script>
+</div>
+
+<!--Chart 18 -->
+<label for="chart18">This is my final chart and the second interactive chart I created.
+  You can select a group of adjacent bars by clicking and dragging.
+  The average of these bars is then calculated and represented by the red line. 
+  The relevant python file I used to scrape this data is CrimeScraper.ipynb which can be found in my Github repository or below </label>
+  <label for="chart10"><a href="CrimeScraper.ipynb">Click here for the relevant Python file</a></label>
+  <div class="chart" id="chart18">
+  <script>
+    var myChart18 = "CrimeChart.json";
+    vegaEmbed('#chart18', myChart18);
+  </script>
+</div>
+
+</div>
+
+
 
 
 

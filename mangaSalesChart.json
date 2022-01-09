@@ -1,0 +1,23 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "subtitle": "Source:Wikipedia",
+    "text": "Average sales per volume (millions)"
+  },
+  
+  "height":300,
+  "width":300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/Jayfq19235/Jayfq19235.github.io/main/manga_data.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "name",
+      "type": "nominal",
+      "title": "Manga name",
+      "axis": {"labelAngle": -90}
+    },
+    "y": {"field": "H", "type": "quantitative", "title": ""}
+  }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<!-- ///////////////////  HEAD //////////////////////////////////// -->
+
+<head>
+
+    <!--The next three lines allow the Vega embed-->
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
+    
+    <link rel="stylesheet" href="index.css">
+    
+    <title>Data Science Project - Jay Dhiru</title>
+    
+    <h1>Data Science Project - Jay Dhiru  </h1>
+    <p><a href="index.html">Click here for my Data Science Portfolio</a></p>
+    
+<h2>Project: The relationship between Happiness and GDP Per Capita, which metric is better to use?</h2>
+
+
+</head>
+
+
+<!-- ///////////////////  HEAD //////////////////////////////////// -->
+
+
+<!-- /////////////////// BODY //////////////////////////////////// -->
+<body>
+
+<div class="grid_items">
+
+
+
+    <label for="chart19">.</label>
+    <div class="chart" id="chart19">
+    <script>
+      var myChart19 = "worldHappinessGraph.json";
+      vegaEmbed('#chart19', myChart19);
+    </script>
+  </div>
+
+  <label for="chart20"></label>
+  <div class="chart" id="chart20">
+    <script>
+      var myChart20 = "gdppcbyCountryChart.json";
+      vegaEmbed('#chart20', myChart20);
+    </script>
+  </div>
+
+
+
+  <div class="chart" id="chart21">
+    <script>
+      var myChart21 = "gdppcPPPbyCountryChart.json";
+      vegaEmbed('#chart21', myChart21);
+    </script>
+  </div>
+  
+  
+  <div class="chart" id="chart22">
+    <script>
+      var myChart22 = "GDPvsHappinessChart.json";
+      vegaEmbed('#chart22', myChart22);
+    </script>
+  </div>
+  
+  
+  <div class="chart" id="chart23">
+    <script>
+      var myChart23 = "PPPvsHappinessChart.json";
+      vegaEmbed('#chart23', myChart23);
+    </script>
+  </div>
+  
+  <label for="chart24">Regression results: y=0x+4.99, R-Squared=0.51</label>
+  <div id=chart24><img src="GDPvsHappinessChart.png"></div>
+
+  
+  <label for="chart24">Regression results: y=0x+4.76, R-Squared=0.53</label>
+  <div id=chart25><img src="PPPvsHappinessChart.png"></div>
+
+<p>
+  Aims: The primary aim of my project was to analyse and to observe the strength and direction of the relationship
+   between happiness and GDP Per Capita. However, there are actually 2 primary methods of measuring GDP per capita. 
+   One way is to use market exchange rates, and the other is to use purchasing power parity (PPP) which accounts for
+    the amount of goods the currency can buy. As such, I then wanted to compare these two different metrics and try to
+     work out which variable was more explanatory and had a stronger relationship with happiness.
+      I decided to use a regression analysis. My initial theory was that PPP would be a better metric, 
+      since it more accurately reflects how much can be bought and as such utility and possibly happiness.
+</p>
+
+<p>Data: The data I used was from the World Bank API and the World Happiness Database API.
+   I accessed this data using Python via Google Colab. For the World Happiness Database,
+    I read the url of the json file including the data. This json file wasn’t particularly 
+    complicated so I was easily able to use Pandas to create a data frame. For the World Bank Data,
+     I could install a package within Python of World Bank Data and then retrieve data from this package directly.
+      I could then select which series I would like and format them into a data frame.
+       As such, I did not have to work around any slightly tricky data like nested json. 
+       To automate my data collecting, I could run the same script but also include a push to my Github repository at the end. 
+       My Github would then have an updated csv file of the data, and I could run this script whenever required. 
+       For my data, this would only need to be once per year. The same could also be done for the Happiness API data. 
+      </p>
+
+
+<p>Data cleaning/analysis challenges: The World Bank data I accessed included a large amount of data for different regions and groups of countries that was very unnecessary. This was all positioned at the top of the data frame so it was easy to drop this data. I ran into some trouble attempting to merge the data frames for the two GDP per capita metrics, and some data was corrupted. I was eventually able to merge the data frames making sure that the country and year for each data point. I attempted to regress the two metrics against happiness within Vega-Lite directly however I found it difficult to return the regression coefficient and intercepts. I also had trouble creating a presentable regression line. As such I opted to run my regression using matplotlib and Seaborn, and then retrieved coefficient and intercept values via linregress from scipy.stats. Using these tools it was also easy to drop null values. I then downloaded these plots and included them as well as my original scatter plots made in Vega-lite for completion.
+
+</p>
+
+<p>My conclusions: My first 3 graphs serve as reference points. The first showcases the happiest countries in the world and their value. The other two enable you to select a country and observe the metric of GDP per capita over time. Furthermore, I included two scatterplots showcasing the metric of GDP per capita against happiness. Finally, I included the same scatterplots with a regression line included which I created using matplotlib and Seaborn.
+  After returning the regression results, the coefficient of GDP per capita in both instances was incredibly small, nearly 0, but still positive. However, the intercepts when using PPP rates was 4.76 compared to 4.99 for market rates, suggesting that we can begin to observe a relationship more quickly when using PPP results. When using PPP rates, the R-squared value returned was 0.53 compared to 0.51 for market rates. As such, PPP rates seem to have a slightly stronger relationship with happiness. Since the coefficients and R-squared values were incredibly similar in both instances, further analysis could include historical happiness data. Additionally, multiple more regressions could be done, attempting to analyse specific groups of countries, or different time periods.
+  </p>
+
+  <a href="ProjectDataCleaningandCharting.ipynb">To access the python file I used to access, clean and chart my data, click here</a>
+
+
+
+</div>
+</body>
+<!-- /////////////////// BODY //////////////////////////////////// -->
+
+</html>

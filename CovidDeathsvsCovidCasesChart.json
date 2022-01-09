@@ -1,6 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Cumulative COVID deaths vs cases in the UK",
+  
+  "height":300,
+  "width":300,
+  
   "layer": [
     {
       "data": {
@@ -13,7 +17,7 @@
         "y": {
           "field": "cumCasesByPublishDate",
           "type": "quantitative",
-          "title": "Cases"
+          "title": "Cases(blue)"
         }
       }
     },
@@ -27,10 +31,10 @@
       ],
       "mark": "line",
       "encoding": {
-        "x": {"field": "date", "type": "temporal"},
-        "y": {"field": "2cd", "type": "quantitative", "title": "Deaths"}
+        "x": {"field": "date", "type": "temporal","title":"Date"},
+        "y": {"field": "2cd", "type": "quantitative", "title": "Deaths(red)"},
+        "color":{"value":"#FF0000"}
       }
     }
-  ],
-  "config": {}
+  ]
 }

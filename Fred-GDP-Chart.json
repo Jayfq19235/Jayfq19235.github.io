@@ -1,0 +1,18 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"subtitle": "Source:FRED", "text": "USA GDP over time"},
+  
+  "height":300,
+  "width":300,
+  
+  
+  "data": {
+    "url": "https://raw.githubusercontent.com/Jayfq19235/Jayfq19235.github.io/main/Fred-GDP.json",
+    "format": {"property": "observations"}
+  },
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "date", "type": "temporal", "title": null},
+    "y": {"field": "value", "type": "quantitative", "title": "GDP($bn)"}
+  }
+}

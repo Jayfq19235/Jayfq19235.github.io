@@ -1,5 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+  
+
   "data": {
     "url": "https://raw.githubusercontent.com/Jayfq19235/Jayfq19235.github.io/main/MetalPrices.csv"
   },
@@ -7,7 +10,8 @@
     "subtitle": "Data from Metals-API",
     "text": "Metal Prices per ounce in GBP as of 02/01/2022"
   },
-  "width": 150,
+  "height":300,
+  "width":300,
   "mark": "bar",
   "encoding": {
     "x": {"field": "name", "type": "nominal", "title": null},

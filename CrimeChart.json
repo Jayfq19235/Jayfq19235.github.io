@@ -1,0 +1,46 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+  "height":300,
+  "width":300,
+  
+  "data": {
+    "url": "https://raw.githubusercontent.com/Jayfq19235/Jayfq19235.github.io/main/crimeData.csv"
+  },
+  "title": {
+    "subtitle": "Source: UKCrimeStats.com",
+    "text": "Total yearly crimes in the UK"
+  },
+  "layer": [
+    {
+      "params": [
+        {"name": "brush", "select": {"type": "interval", "encodings": ["x"]}}
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "timeUnit": "year",
+          "field": "date",
+          "type": "ordinal",
+          "title": "Year"
+        },
+        "y": {
+          "aggregate": "mean",
+          "field": "total",
+          "type": "quantitative",
+          "title": "Crimes"
+        },
+        "opacity": {"condition": {"param": "brush", "value": 1}, "value": 0.7}
+      }
+    },
+    {
+      "transform": [{"filter": {"param": "brush"}}],
+      "mark": "rule",
+      "encoding": {
+        "y": {"aggregate": "mean", "field": "total", "type": "quantitative"},
+        "color": {"value": "firebrick"},
+        "size": {"value": 3}
+      }
+    }
+  ]
+}
